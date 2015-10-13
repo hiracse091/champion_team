@@ -1,0 +1,591 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+        <title>Champion Team</title>
+        <style type="text/css" media="screen">@import "lib/themes/css/vanilla.css";</style>
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/swipe.css">
+        <link rel="stylesheet" type="text/css" href="css/accordion.css">
+        <link rel="stylesheet" type="text/css" href="css/pgwmodal.min.css">
+
+        <script src="lib/src/lib/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+       
+
+
+        <script src="lib/src/plugin/touch-dnd.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="lib/src/jqt.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="lib/src/jqtouch-jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <!--script src="lib/src/plugin/zepto-slide-transition.min.js" type="text/javascript" charset="utf-8"></script-->
+        <script src="lib/src/plugin/swipe.js" type="text/javascript" charset="utf-8"></script>
+        <script src="lib/src/plugin/accordion.js" type="text/javascript" charset="utf-8"></script>
+        <script src="lib/src/plugin/pgwmodal.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="lib/src/plugin/countdown.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="lib/src/plugin/date.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jquery_event_swipe/jquery.event.move.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jquery_event_swipe/jquery.event.swipe.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'jqtouch.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                defaultAnimation: 'slideleft',
+                // touchSelector: '_ezswipe',
+                statusBar: 'black',
+                fixedViewport:true,
+                useTouchScroll: true,
+                useFastTouch: false,
+                preloadImages: []
+            });
+
+        </script>
+        
+    </head>
+    <body>
+        <div id="jqt">  
+
+            <div id="login">
+                
+                <div class="logo"><img src="img/CT.png"></div>
+                
+                <form id="loginForm">
+                    <ul class="edit">
+                        
+                        <li><input type="email" name="email" placeholder="Email" id="email" value="" /></li>
+                        
+                        <li><input type="password" name="password" placeholder="Password" value="" id="password" /></li>
+                        <li>
+                            <select id="competitionDdl" name="competitionId">
+                                
+                            </select>
+                        </li>
+                        
+                    </ul>
+                    <a href="javascript:submitLogin();" class="loginButton">Log In</a>
+                    <div class="center">OR</div>
+                    <a href="#home" class="facebookButton">Log in With Facebook</a>
+                </form>
+            </div>
+
+            <div id="home">
+                <div id="teamDetailPage">
+                    <div class="toolbar">
+                        <a href="javascript:removeTeamDetailPage();" class="homeButton backbtn"></a>
+                        <div class="title">Fantasy Team Score</div>
+                    </div>
+                    <div class="scroll">
+                        <ul id="fantasyTeamScore" class="teamDetailUl">
+                            <li class="downArrow" >
+                                <select name="roundNo" id="roundDDL">
+                                    
+                                </select>
+                               <!--  <span ></span> -->
+                            </li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="toolbar header1"><div class="topHeader"><span >Reamaing Salary</span><span>Team Value</span></div></div>
+                <div class="toolbar header2">                    
+                    <a class="homeButton allTeamMenu" ><img src="img/menushow.png"></a>
+                    <div id="fantasyPageBtn" class="topHeader  swipe_selector">
+                        <span class="remaining_salary"><img src="img/US-dollar.png"><label></label></span>
+                        <span class="team_value"> <img src="img/US-dollar.png"><label></label></span>
+                        <a href ="javascript:showTeamDetailPage();" class="homeButton downButton" ><img src="img/topArrow.png"></a>
+                    </div>
+                    <a class="homeButton rightButton settingsButton" ><img src="img/settings.png"></a>
+                </div>                                
+                <div class="page_body">
+                    <div id="allTeamPage" class="hideSubmenu allTeamPage">
+                        <div class="clientInfo"><div class="name"></div><span></span></div>
+                        <ul class="off-canvas-list">
+                            
+                            <li class="off-canvas-submenu-call">Champeon Team <span></span>
+                                <ul class="off-canvas-submenu">
+                                    <li><div class="addTeam"><img src="img/addIcon.png"></div></li>
+                                </ul>
+                            </li>
+                            <li class="off-canvas-submenu-call" >SuperCoach<span></span>
+                                <ul class="off-canvas-submenu">
+                                    <li><div class="addTeam"><img src="img/addIcon.png"></div></li>
+                                </ul>
+                            </li>
+                            <li class="off-canvas-submenu-call">Dream Team<span></span>
+                                <ul class="off-canvas-submenu">
+                                    <li><div class="addTeam"><img src="img/addIcon.png"></div></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="settings" class="hideSubmenu  settingsPage">
+                        <div class="scroll">
+                            <div class="sub_header">Settings</div>
+                            <div class="sub_header namingHeader">
+                                <span class="name">Lee Lee Lui</span>
+                                <span class = "email">example@gmail.com</span>
+                            </div>
+                            <ul class="settingsUl">
+                                <li><span class="notificationTxt">Notification On </span><span class="toggle"><input type="checkbox" /></span></li>
+                                <li ><a href="#askTheExpert">Ask the Expert </a><span></span></li>
+                                <li ><a href="#news_n_events">News & Events </a><span></span></li>
+                                <li ><a href="#askTheExpert">Invite Friends </a><span></span></li>
+                                <li ><a href="javascript:showTeamPlayerStat();">Team Player & Stats </a><span></span></li>
+                                <li ><a href="javascript:gotoInjury();">Injury List</a> <span></span></li>
+                                <li ><a href="#askTheExpert">Help </a><span></span></li>
+                            </ul>                            
+                        </div>
+                    </div>                     
+                    
+                    <div class="rankingPageIcon"><a href="javascript:showRankingPage();" class="slideright"><img src="img/rightarrow_white.png"></a></div>
+                    <div class="leagePageIcon"><a href="javascript:showLeaguePage();"><img src="img/leftarrow_white.png"></a></div>
+                    <div class="mainField">
+                         <div class="navbar">
+                            <div class="clientName"></div>
+                            <div class="fieldButtoon">
+                                <div id="removePlayer"><span class="removeIcon"></span></div>
+                                <div id="assignCaptain"><span class="captainIcon"></span></div>
+                            </div>
+                        </div> 
+                       
+                    </div>
+                </div>
+                <div class="footerBar">
+                    <div class="roundInfo">
+                        <div class="round_no">
+                            <!-- Roound 12 -->
+                        </div>
+                        <div class="date">
+                            1:40 PM, SAT 20, JUN
+                        </div>
+                        <div id="elapsed_time" class="elapsed_time"></div>
+                    </div>
+                    <div class="benchBtn" ><a href="javascript:showBenchPage();"><img src="img/benchMenu.png"></a></div>
+                    <div class="emailBtn"><img src="img/email.png"></div>
+                </div>
+                <div id="onTheBench" class="onTheBench">
+                    <div class="benchback">
+                        <div class="benchBtn"><a href="javascript:removeBenchPage();"><img src="img/benchMenu.png"></a></div>
+                        <div>on the bench</div>                        
+                        <div class="searchBtn"><a href="javascript:showSearchPage();"><img src="img/search.png"></a></div>                        
+                    </div>
+                    <div class="benchField">                        
+                                                        
+                    </div>
+                    
+                </div>
+                <div id="searchPage" class="searchPage">
+                    <div class="toolbar">
+                        <a  href="javascript:closeSearch();" class="backbtn">CLOSE</a>
+                        <div class="title">All Players</div>
+                    </div>
+                    <form id="searchPlayerForm" style="float:left;width:100%;height:100%;">
+                        <ul class="edit  addTeamUl">
+                            <li>
+                                <div>
+                                    <label>Team </label><input type="text" name="team_name" placeholder="Enter your team name" id="team_name" />
+                                    <span class="searchByTeam searchicon"><img src="img/search.png"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <label>Player </label><input type="text" name="player_name" placeholder="Enter player name" id="player_name" />
+                                    <span class="searchByTeam searchicon" ><img src="img/search.png"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="javascript:searchPlayer();" class="btnContainer"><span class="btn">submit</span></a>
+                                </div>
+                            </li>
+                            <li class="searchedResult">
+                                
+                            </li>                            
+                        </ul>
+                    </form>
+                </div>    
+                 
+            </div> 
+            <!-- <div id="searchPage" class="searchPage">
+                    
+                <div class="toolbar">
+                    <a  href="javascript:closeSearch();" class="">CLOSE</a>
+                    <div class="title">All Players</div>
+                </div>
+                
+                <form id="searchPlayerForm">
+                    <ul class="edit  addTeamUl">
+                        <li>
+                            <label>Team </label><input type="text" name="team_name" placeholder="Enter your team name" id="team_name" />
+                            <span class="searchByTeam searchicon"><img src="img/search.png"></span>
+                        </li>
+                        <li>
+                            <label>Player </label><input type="text" name="player_name" placeholder="Enter player name" id="player_name" />
+                            <span class="searchByTeam searchicon" ><img src="img/search.png"></span>
+                        </li>
+                        <li><a href="javascript:searchPlayer();" class="btnContainer"><span class="btn">submit</span></a></li>
+                        <li class="searchedResult">
+                            
+                        </li>
+                        
+                    </ul>
+                </form>
+            </div>     -->                   
+            <div id="player_detail">
+                <div class="toolbar">
+                    <a  href="#home" class="backbtn"></a>
+                    <div class="title">Players Details</div>
+                </div>
+                <div class="scroll">
+                    <div class="player_accordion" id="player_accordion">
+                         <ul>
+                           <!-- <li class="ac_item">
+                                <div class="titleCont">
+                                    <div class="teamlogo">
+                                        <div><img src="img/Sydney/logo.jpg"></div>
+                                        <span>FW</span>
+                                    </div>
+                                    <div class="player_img"><img src="img/Sydney/ROSE James_t.png"></div>
+                                    <div class="player_name">
+                                        <div class="name">11.MITCHELL Sam</div>
+                                        <span><img src="img/US-dollar.png"><label>250,200</label></span>
+                                    </div>
+                                    <div class="round_no">
+                                        <div>82</div>
+                                        <div style="color:#ccc;">100.56</div>
+                                    </div>
+                                </div>
+                                <div class="titleOnOver">
+                                    REASON
+                                </div>
+                                <span class="arrow_icn"></span>
+                                <div class="ac_content">
+                                    <div class="titleCont">
+                                        <div class="teamlogo">
+                                            <div><img src="img/Sydney/logo.jpg"></div>
+                                            <span>FW</span>
+                                        </div>
+                                        <div class="player_img"><img src="img/Sydney/ROSE James_t.png"></div>
+                                        <div class="player_name">
+                                            <div class="name">11.MITCHELL Sam</div>
+                                            <span><img src="img/US-dollar.png"><label>250,200</label></span>
+                                        </div>
+                                        <div class="round_no">
+                                            <div>82</div>
+                                            <div style="color:#ccc;">100.56</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <ul class="teamDetailUl">
+                                        <li><span>round 11 price change</span> <span>$10,000</span></li>
+                                        <li><span>overall price change</span><span>$10,000</span></li>
+                                        <li><span>round 11 ranking</span><span>$10,000</span></li>
+                                        <li><span>round 11 score</span><span>$10,000</span></li>
+                                        <li><span>game played</span><span>$10,000</span></li>
+                                        <li><span>HIGH SCORE</span><span>$10,000</span></li>
+                                        <li><span>LOW SCORE</span><span>$10,000</span></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="ac_item">
+                                <div class="titleCont">
+                                    <div class="teamlogo">
+                                        <div><img src="img/Sydney/logo.jpg"></div>
+                                        <span>FW</span>
+                                    </div>
+                                    <div class="player_img"><img src="img/Sydney/ROSE James_t.png"></div>
+                                    <div class="player_name">
+                                        <div class="name">11.MITCHELL Sam</div>
+                                        <span><img src="img/US-dollar.png"><label>250,200</label></span>
+                                    </div>
+                                    <div class="round_no">
+                                        <div>82</div>
+                                        <div style="color:#ccc;">100.56</div>
+                                    </div>
+                                </div>
+                                <div class="titleOnOver">
+                                    REASON
+                                </div>
+                                <span class="arrow_icn"></span>
+                                <div class="ac_content">
+                                    <div class="titleCont">
+                                        <div class="teamlogo">
+                                            <div><img src="img/Sydney/logo.jpg"></div>
+                                            <span>FW</span>
+                                        </div>
+                                        <div class="player_img"><img src="img/Sydney/ROSE James_t.png"></div>
+                                        <div class="player_name">
+                                            <div class="name">11.MITCHELL Sam</div>
+                                            <span><img src="img/US-dollar.png"><label>250,200</label></span>
+                                        </div>
+                                        <div class="round_no">
+                                            <div>82</div>
+                                            <div style="color:#ccc;">100.56</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <ul class="teamDetailUl">
+                                        <li><span>round 11 price change</span> <span>$10,000</span></li>
+                                        <li><span>overall price change</span><span>$10,000</span></li>
+                                        <li><span>round 11 ranking</span><span>$10,000</span></li>
+                                        <li><span>round 11 score</span><span>$10,000</span></li>
+                                        <li><span>game played</span><span>$10,000</span></li>
+                                        <li><span>HIGH SCORE</span><span>$10,000</span></li>
+                                        <li><span>LOW SCORE</span><span>$10,000</span></li>
+                                    </ul>                                
+                                </div>
+                            </li>
+                            <li class="ac_item">
+                                <div class="titleCont">
+                                    <div class="teamlogo">
+                                        <div><img src="img/Sydney/logo.jpg"></div>
+                                        <span>FW</span>
+                                    </div>
+                                    <div class="player_img"><img src="img/Hawto/Jordan Lewis.jpg"></div>
+                                    <div class="player_name">
+                                        <div class="name">11.MITCHELL Sam</div>
+                                        <span><img src="img/US-dollar.png"><label>250,200</label></span>
+                                    </div>
+                                    <div class="round_no">
+                                        <div>82</div>
+                                        <div style="color:#ccc;">100.56</div>
+                                    </div>
+                                </div>
+                                <div class="titleOnOver">
+                                    REASON
+                                </div>
+                                <span class="arrow_icn"></span>
+                                <div class="ac_content">
+                                    <div class="titleCont">
+                                        <div class="teamlogo">
+                                            <div><img src="img/Sydney/logo.jpg"></div>
+                                            <span>FW</span>
+                                        </div>
+                                        <div class="player_img"><img src="img/Hawto/Jordan Lewis.jpg"></div>
+                                        <div class="player_name">
+                                            <div class="name">11.MITCHELL Sam</div>
+                                            <span><img src="img/US-dollar.png"><label>250,200</label></span>
+                                        </div>
+                                        <div class="round_no">
+                                            <div>82</div>
+                                            <div style="color:#ccc;">100.56</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <ul class="teamDetailUl">
+                                        <li><span>round 11 price change</span> <span>$10,000</span></li>
+                                        <li><span>overall price change</span><span>$10,000</span></li>
+                                        <li><span>round 11 ranking</span><span>$10,000</span></li>
+                                        <li><span>round 11 score</span><span>$10,000</span></li>
+                                        <li><span>game played</span><span>$10,000</span></li>
+                                        <li><span>HIGH SCORE</span><span>$10,000</span></li>
+                                        <li><span>LOW SCORE</span><span>$10,000</span></li>
+                                    </ul>                                    
+                                </div>
+                            </li>-->
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+            <div id="askTheExpert">
+                <div class="toolbar">
+                    <a href="#home" class="backbtn slideright"> </a>
+                    <div class="title">Ask the Experts</div>
+                </div>
+                <div class="scroll">
+                    <div class="content ask_expert_content">
+                        <textarea placeholder="enter new topic here" class="askTopic"></textarea>
+                        <div class="qsnArea">
+                            <span class="nameText">Lee Lee Lui</span>
+                            <span class="qsnText">Who do you think is the best player?</span>
+                            <span class="dateString">12/6/2015</span>
+                        </div>
+                        <textarea placeholder="enter comment here" ></textarea>
+                    </div>
+                </div>
+            </div> 
+            <div id="team_n_payerStats">
+                <div class="toolbar">
+                    <a href="#home" class="backbtn slideright"> </a>
+                    <div class="title">Player Stats</div>
+                </div>
+                
+                <div class="contentPlayerStats">
+                    <div class="roundDdlContainer">
+                        <select id="roundDdl" name="roundNo" class="roundDdl" >
+                            <option value="0">Round 12</option>
+                            <option value="1">Round 13</option>
+                            <option value="2">Round 14</option>
+                            <option value="3">Round 15</option>
+                        </select>
+                        <!-- <span ></span>  -->   
+                    </div>
+                    <div class="tableHeader">
+                        <table cellpadding="0" cellspacing="0"><tr><th>NAME</th><th>GM</th><th>KI</th><th>HB</th><th>MK</th><th>TK</th><th>FF</th><th>FA</th><th>HO</th><th>GL</th><th>BH</th></tr></table>
+                    </div>
+                    <div id='slider' class='swipe'>
+                        <div class='swipe-wrap'>                               
+
+                        </div>
+                    </div>
+                    <div class="pagination">
+                        <ul>
+                            <!-- <li class="active"></li>
+                            <li></li>
+                            <li></li> -->
+                        </ul>
+                    </div>
+                </div>
+               
+            </div> 
+            <div id="injuryList">
+                <div class="toolbar">
+                    <a href="#home" class="backbtn"> </a>
+                    <div class="title">INJURY LIST</div>
+                </div>
+                <div class="scroll content_body">
+                    <div class="content injury_list">
+                        <table cellpadding="0" cellspacing="0" >
+                            <tr><th>Team</th><th>Player Name</th><th>Injury</th><th>Return Date</th></tr>
+                            <tr>
+                                <td><span>1.</span><img src="img/Hawto/logo.jpg"></td>
+                                <td>Harry Dear</td>
+                                <td>2,200</td>
+                                <td>18,691</td>                                
+                            </tr>
+                            <tr><td><span>1.</span><img src="img/Hawto/logo.jpg"></td><td>Harry Dear</td><td>2,200</td><td>18,691</td></tr>
+                            <tr><td><span>2.</span><img src="img/Sydney/logo.jpg"></td><td>Harry Dear</td><td>2,200</td><td>18,691</td></tr>
+                            <tr><td><span>3.</span><img src="img/Hawto/logo.jpg"></td><td>Harry Dear</td><td>2,200</td><td>18,691</td></tr>
+                            <tr><td><span>4.</span><img src="img/Sydney/logo.jpg"></td><td>Harry Dear</td><td>2,200</td><td>18,691</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div> 
+            <div id="rankingPage">
+                <div class="toolbar">
+                    <a href="#home" class="backbtn"> </a>
+                    <div class="title">RANKING</div>
+                </div>
+                <div class="scroll content_body">
+                    <div class="content injury_list">
+                        <div class="rankHeader" style="background-color: #BDDAE8;">Top 5 Player</div>
+                        <table cellpadding="0" cellspacing="0" id="topPlayer">
+                            <tr><th>Team</th><th>Player Name</th><th>Round Score</th><th>Total Score</th></tr>
+                            <tr class="tr_row">
+                                <td><span>1.</span><img src="img/Hawto/logo.jpg"></td>
+                                <td>Harry Dear</td>
+                                <td>2,200</td>
+                                <td>18,691</td>                                
+                            </tr>
+                            
+                        </table>
+                        <div class="rankHeader" style="background-color: #F5D9AE;">Top 5 Team</div>
+                        <table cellpadding="0" cellspacing="0" id="topTeam">
+                            <tr><th>Team</th><th>Team Name</th><th>Round Score</th><th>Total Score</th></tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>   
+            <div id="leaguePage">
+                <div class="toolbar">
+                    <a href="#home" class="backbtn slideright"></a>
+                    <div class="title">leagues</div>
+                    <div class="addLeagueIcon"><img src="img/addIcon.png"></div>
+                </div>
+                <div class="scroll">
+                    <div class="swap_note">**Swap right to leave the league</div>
+                    <div class="leagueTable" >
+                        <div class="table">
+                            <div class="league_title">
+                                <div>League</div><div> Type</div><div>Team</div>
+                            </div>
+                            <!-- <div class="league_row">
+                                <div>Auto league 2012</div><div>Open</div><div>1036 </div>
+                            </div>
+                            <div class="league_row">
+                                <div>
+                                    Hawto m Verified League
+                                </div>
+                                <div>
+                                    Head 2 Head
+                                </div>
+                                <div>
+                                    1032
+                                </div>
+                            </div>
+                            <div class="league_row">
+                                <div >
+                                    Robbie Grey
+                                </div>
+                                <div>
+                                    Open
+                                </div>
+                                <div>
+                                    500
+                                </div>
+                            </div>
+                            <div class="league_row">
+                                <div>
+                                    Daniel Mackenzie
+                                </div>
+                                <div>
+                                    Open
+                                </div>
+                                <div>
+                                    60
+                                </div>
+                            </div> -->
+                        </div>
+                    </div> 
+                    <div class="leagueFooter">
+                        <div class="activeTab">my leagues</div>
+                        <div ><a href="#AllleaguePage" class="fade">all leagues</a></div>
+                    </div> 
+                    
+                </div>
+            </div>   
+            <div id="AllleaguePage">
+                <div class="toolbar">
+                    <a href="#home" class="backbtn slideright"></a>
+                    <div class="title">leagues</div>
+                    
+                </div>
+                <div class="scroll">                   
+                    <div class="leagueTable" >
+                        <div class="table">
+                        
+                        </div>
+                    </div> 
+                    <div class="leagueFooter">
+                        <div ><a href="#leaguePage" class="fade">my leagues</a></div>
+                        <div class="activeTab">all leagues  </div>
+                    </div>           
+                </div>
+            </div>  
+            <div id="news_n_events">
+                <div class="toolbar">
+                    <a href="#home" class="backbtn slideright"></a>
+                    <div class="title">news & events</div>
+                    <div class="newsDate">
+                        <span class="date">19</span>
+                        <span class="month">jun</span>
+                    </div>
+                </div>
+            </div>    
+        </div>  
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/services.js"></script>        
+        <script type="text/javascript" src="js/app.js"></script>        
+        <script type="text/javascript" src="js/common.js"></script>  
+        <div class="ajax-loader">
+            <div class="loader-ring"></div>
+        </div>      
+    </body>
+</html>

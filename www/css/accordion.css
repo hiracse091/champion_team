@@ -1,0 +1,176 @@
+.verticalaccordion{
+    height: 100%;
+    width: 100%;
+    float: left;
+    overflow: auto;
+}
+.verticalaccordion>ul {
+    margin: 0!important;
+    padding: 0!important;
+    list-style:none;
+   	width: 98%;
+   	height: auto;
+}
+
+.verticalaccordion>ul>li {
+    display:block;
+	overflow: hidden;
+    margin: 0;
+    padding: 0!important;
+    list-style:none;
+	height:30px;
+	width: 100%;
+
+    /* Decorative CSS */
+    background-color: #666666;
+  	color: #fff;
+
+    /* CSS3 Transition Effect */
+    transition: height 0.3s ease-in-out;
+    -moz-transition: height 0.3s ease-in-out;
+    -webkit-transition: height 0.3s ease-in-out;
+    -o-transition: height 0.3s ease-in-out;
+
+}
+
+.verticalaccordion>ul>li>h3 {
+    display:block;
+    margin: 0;
+    padding:5px;
+    height:15px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.verticalaccordion>ul>li>div {
+    margin:0;
+    overflow: auto;
+    padding:5px;
+    height:220px;
+    margin-top: 10px;
+}
+
+.verticalaccordion>ul>li.hoverItem {
+	height: 280px;
+}
+.verticalaccordion>ul>li>span {
+    /* Decorative CSS */
+    background-image: url(../img/topArrow.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 6px;
+	top: 1px;
+	opacity: 0.6;
+    /* CSS3 Gradient Effect */
+    /**/
+}
+.verticalaccordion>ul>li.hoverItem>span {
+    /* Decorative CSS */
+    background-image: url(../img/arrowup_white.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 6px;
+	top: 1px;
+	opacity: 0.6;
+    /* CSS3 Gradient Effect */
+    /**/
+}
+
+.verticalaccordion>ul>li>h3.hoverItem {
+    cursor:pointer;
+}
+
+/*player_accordion*========================================*/
+
+.player_accordion>ul {
+    margin: 0!important;
+    padding: 0!important;
+    list-style:none;
+    width: 100%;
+    height: 100%;
+}
+
+.player_accordion>ul>li {
+    display:block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0!important;
+    list-style:none;
+    background: #fff!important;
+    color: #000;
+    height: 90px!important;
+    width: 100%;
+    border-top: 2px solid #ccc!important;
+    /* CSS3 Transition Effect */
+    transition: height 0.3s ease-in-out;
+    -moz-transition: height 0.3s ease-in-out;
+    -webkit-transition: height 0.3s ease-in-out;
+    -o-transition: height 0.3s ease-in-out;
+
+}
+
+.player_accordion>ul>li>h3 {
+    display:block;
+    margin: 0;
+    padding:5px;
+    height:15px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.player_accordion>ul>li>div.ac_content {
+    margin:0;
+    overflow: auto;
+    padding:5px;
+    height:330px;
+    margin-top: 15px;
+}
+
+.player_accordion>ul>li.hoverItem {
+    height: 400px!important;
+}
+.player_accordion>ul>li>span.arrow_icn {
+    /* Decorative CSS */
+    background-image: url(../img/topArrow.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 6px;
+    top: 40%;
+    opacity: 0.6;
+    /* CSS3 Gradient Effect */
+    /**/
+}
+.player_accordion>ul>li.hoverItem>div.titleCont{
+    display: none;
+}
+.player_accordion>ul>li.hoverItem>div.titleOnOver{
+    display: block;
+}
+.player_accordion>ul>li.hoverItem>span.arrow_icn {
+    /* Decorative CSS */
+    background-image: url(../img/arrowup.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 6px;
+    top: 1px;
+    opacity: 0.6;
+    /* CSS3 Gradient Effect */
+    /**/
+}
+
+.player_accordion>ul>li>h3.hoverItem {
+    cursor:pointer;
+}
+
